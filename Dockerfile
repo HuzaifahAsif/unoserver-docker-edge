@@ -20,8 +20,12 @@ RUN addgroup -S ${GID} && adduser -S ${UID} -G ${GID}
 RUN apk add --no-cache \
     bash curl \
     py3-pip \
-    libreoffice \
     supervisor
+
+RUN apk --no-cache add \
+    --repository=http://dl-cdn.alpinelinux.org/alpine/edge/main \
+    --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community \
+    libreoffice
 
 # fonts - https://wiki.alpinelinux.org/wiki/Fonts
 RUN apk add --no-cache \
